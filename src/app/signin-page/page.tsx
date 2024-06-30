@@ -23,11 +23,11 @@ const SignInPage = () => {
     const dispatch = useDispatch<AppDispatch>();
     const router = useRouter();
 
-    const handleClick = () => {
+    const handleClick = async () => {
         if (name) {
             dispatch(setUserName(name));
         }
-        router.push('/home-page');
+        await router.push('/home-page');
     };
 
     return (

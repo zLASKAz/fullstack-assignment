@@ -489,7 +489,8 @@ const Home = () => {
             <Modal isOpen={isOpenDelete} onClose={() => setIsOpenDelete(!isOpenDelete)} size={{ w: "400px", h: "248px" }} closeButton>
                 <div className="flex flex-col">
                     <span className="text-medium  text-[#101828] font-semibold text-center">Please confirm if you wish to <br />delete the post</span>
-                    <span className='text-base font-normal text-[#5B5B5B] text-center' >Are you sure you want to delete the post? <br />Once deleted, it cannot be recovered.</span>
+                    {isLargeScreen ? <span className='text-base font-normal text-[#5B5B5B] text-center' >Are you sure you want to delete the post? <br />Once deleted, it cannot be recovered.</span>
+                        : <span className='text-base font-normal text-[#5B5B5B] text-center' >Are you sure you want to delete the post? Once deleted, it cannot be recovered.</span>}
 
                     <div className="gap-3 flex mt-8 md:flex-row flex-col">
                         <ButtonOutline className="order-2 md:order-1 flex-1 flex justify-center items-center py-[18px] px-[10px]" onClick={() => setIsOpenDelete(false)}>Cancel</ButtonOutline>

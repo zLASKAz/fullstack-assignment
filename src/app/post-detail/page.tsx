@@ -12,6 +12,7 @@ import { RootState } from '../store/store';
 import { useRouter } from 'next/navigation';
 import dayjs from 'dayjs';
 import { useMediaQuery } from 'react-responsive';
+import Modal from '../components/Modal';
 interface Comment {
     nameComment: string;
     image: string;
@@ -41,7 +42,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true)
     const [textComment, setTextComment] = useState<string>('')
     const BASE_URL = process.env.BASE_URL
-
+    const [isOpenAddComment, setIsOpenAddComment] = useState<boolean>(false)
     const isLargeScreen = useMediaQuery({ query: '(min-width: 768px)' });
     const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
 
@@ -113,34 +114,41 @@ const Home = () => {
             const response = await axios.post(`${BASE_URL}/kratu/${DataId}/comments`, comment);
             console.log('Post request successful:', response.data);
             setLoading(false);
+            handleCancelComment()
             callKratuDataByIDAfterPost()
 
         } catch (error) {
             console.error('Error making POST request:', error);
         }
     }
+    const handleCancelComment = () => {
+        setIsOpenAddComment(false)
+        setTextComment('')
+    }
     return (
         <div className="relative min-h-screen">
-            <header className="flex justify-between bg-[#253830]">
-                <div className="text-white items-center flex ml-8 my-4">a Board</div>
+            <header className="flex justify-between bg-[#243831]">
+                <div className="text-white items-center flex ml-8 my-4 " style={{ fontFamily: 'Castoro, serif', fontWeight: 400, fontStyle: 'italic', fontSize: "28px" }}>a Board</div>
 
-                {!isLargeScreen ? <div className='flex items-center mr-5'>
-                    <button onClick={() => setIsOpenMenu(true)}>
+                {
+                    !isLargeScreen ? <div className='flex items-center mr-5'>
+                        <button onClick={() => setIsOpenMenu(true)}>
 
-                        <Image src="/icons/menuIcon.png" alt="menu" width={24} height={24} />
-                    </button>
+                            <Image src="/icons/menuIcon.png" alt="menu" width={24} height={24} />
+                        </button>
 
-                </div> : <>{userName ? (
-                    <div className="flex gap-5 mr-8 my-2.5 w-[118px] items-center">
-                        <div className="text-base font-medium text-white">{userName}</div>
-                        <Image src="/icons/avatarIcon.png" alt="avatar-signin-already" width={40} height={40} />
-                    </div>
-                ) : (
-                    <Button onClick={() => router.push('/signin-page')} className="mr-8 my-2.5 w-[105px] ">
-                        Sign in
-                    </Button>
-                )}</>}
-            </header>
+                    </div> : <>{userName ? (
+                        <div className="flex gap-5 mr-8 my-2.5 w-[118px] items-center">
+                            <div className="text-base font-medium text-white">{userName}</div>
+                            <Image src="/icons/avatarIcon.png" alt="avatar-signin-already" width={40} height={40} />
+                        </div>
+                    ) : (
+                        <Button onClick={() => router.push('/signin-page')} className="mr-8 my-2.5 w-[105px] ">
+                            Sign in
+                        </Button>
+                    )}</>
+                }
+            </header >
             <div className='flex mb-4' >
 
                 <div className=' flex-col items-start p-8 gap-6 min-h-screen w-[280px] bg-[#BBC2C0] hidden md:flex'>
@@ -186,7 +194,7 @@ const Home = () => {
                                     </div>
                                 </>
                                 ) : (
-                                    <ButtonOutline className='w-fit flex items-center py-2.5 px-4 text-sm h-10'>Add Comments</ButtonOutline>
+                                    <ButtonOutline className='w-fit flex items-center py-2.5 px-4 text-sm h-10' onClick={() => setIsOpenAddComment(true)}>Add Comments</ButtonOutline>
                                 )}
                                 {messageFiltered?.map((data, index) => (
                                     <div key={index} className='flex flex-col gap-2.5 md:gap-5 bg-white md:p-4 rounded-lg'>
@@ -228,7 +236,28 @@ const Home = () => {
                     </div>
                 }
             </div>
-        </div>
+            <Modal isOpen={isOpenAddComment} onClose={() => setIsOpenAddComment(!isOpenAddComment)}>
+                <div className="flex flex-col">
+                    <h1 className="text-[28px] text-[#192338] font-semibold mb-4">Add Comments</h1>
+                    <div className="flex flex-col">
+                        <textarea
+                            value={textComment}
+                            onChange={(e) => setTextComment(e.target.value)}
+                            name="comment"
+                            id="comment"
+                            placeholder="What's on your mind..."
+                            className="rounded-lg w-auto  h-[120px] md:h-[234px] border border-[#49A569] py-2.5 px-3.5 text-base"
+                        ></textarea>
+                        <div className="gap-3 flex flex-col md:flex-row justify-end mt-[30px]">
+                            <ButtonOutline className=" md:w-[105px] " onClick={handleCancelComment}>Cancel</ButtonOutline>
+                            <Button className=" md:w-[105px]" onClick={handlePostComment}>
+                                Post
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
+        </div >
     );
 };
 

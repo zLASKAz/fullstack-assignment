@@ -148,7 +148,7 @@ const Home = () => {
     const handleDelete = async () => {
         try {
             setLoading(true);
-            const response = await axios.delete(`${BASE_URL}:3000/kratu/delete/${idToDelete}`);
+            const response = await axios.delete(`${BASE_URL}/kratu/delete/${idToDelete}`);
             console.log('Post request successful:', response.data);
             setLoading(false);
             setIsOpenDelete(false);
@@ -173,7 +173,7 @@ const Home = () => {
             const response = await axios.patch(`${BASE_URL}/kratu/update/${idToUpdate}`, dataToUpdate);
             console.log('Post request successful:', response.data);
             setLoading(false);
-            setIsOpenEdit(false);
+            handleCancelUpdate()
             fetchDataAfterCreate()
         } catch (error) {
             console.error('Error making POST request:', error);
@@ -198,7 +198,7 @@ const Home = () => {
                 const response = await axios.post(`${BASE_URL}/kratu/post`, data);
                 console.log('Post request successful:', response.data);
                 setLoading(false);
-                setIsOpen(false);
+                handleCancelCreate()
                 fetchDataAfterCreate()
             } catch (error) {
                 console.error('Error making POST request:', error);
@@ -254,10 +254,22 @@ const Home = () => {
         setIsOpenDelete(!isOpenDelete)
         setIdToDelete(id)
     }
+    const handleCancelCreate = () => {
+        setContent('')
+        setTitle('')
+        setSelectedItem('')
+        setIsOpen(false)
+    }
+    const handleCancelUpdate = () => {
+        setUpdateContent('')
+        setUpdateTitle('')
+        setSelectedItemUpdate('')
+        setIsOpenEdit(false)
+    }
     return (
         <div className="relative min-h-screen bg-[]">
-            <header className="flex justify-between bg-[#253830]">
-                <div className="text-white items-center flex ml-8 my-4">a Board</div>
+            <header className="flex justify-between bg-[#243831]">
+                <div className="text-white items-center flex ml-8 my-4" style={{ fontFamily: 'Castoro, serif', fontWeight: 400, fontStyle: 'italic', fontSize: "28px" }}>a Board</div>
 
                 {!isLargeScreen ? <div className='flex items-center mr-5'>
                     <button onClick={() => setIsOpenMenu(true)}>
@@ -300,7 +312,7 @@ const Home = () => {
                                 value={searchQuery}
                                 onChange={handleSearchInputChange}
                                 placeholder={placeholder}
-                                className="md:w-[535px] bg-[#BBC2C0] md:focus:outline-none md:focus:border-transparent w-2 focus:w-screen md:focus:w-[535px]"
+                                className="md:w-[535px] bg-[#BBC2C0] focus:outline-none focus:border-transparent md:focus:outline-none md:focus:border-transparent w-2 focus:w-screen md:focus:w-[535px]"
                             />
                         </div>
                         <div>
@@ -338,9 +350,10 @@ const Home = () => {
                                     }`}
                             >
                                 <div className='flex justify-between '>
-                                    <div className='flex gap-2 '>
+                                    <div className='flex gap-2 items-center'>
                                         <Image src="/icons/avatarIcon.png" alt='edit' width={16} height={16}></Image>
                                         <div>{data.name}</div>
+                                        <div className=" text-gray-300 text-[12px] font-normal ">{handleDate(data.timeStamp)}</div>
                                     </div>
                                     <div className='flex gap-[15px] '>
                                         <button onClick={() => handleEditAndSetID(data.id)}>
@@ -351,11 +364,10 @@ const Home = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className=" text-gray-300 text-[12px] font-normal">{handleDate(data.timeStamp)}</div>
                                 <div className="py-1 px-2 rounded-2xl w-fit text-xs" style={{ backgroundColor: '#F3F3F3', color: '#4A4A4A' }}>
                                     {data.tagName}
                                 </div>
-                                <div className="font-semibold text-medium">{data.title}</div>
+                                <div className="font-semibold text-[28px]">{data.title}</div>
                                 <div className="w-auto line-clamp-2">{data.content}</div>
                                 <div className="flex gap-2">
                                     <Image src="/icons/commentIcon.png" alt="back-icon" width={16} height={16} />
@@ -411,9 +423,9 @@ const Home = () => {
                             placeholder="What's on your mind..."
                             className="rounded-lg w-auto h-[234px] border border-[#49A569] py-2.5 px-3.5 text-base"
                         ></textarea>
-                        <div className="gap-3 flex justify-end">
-                            <ButtonOutline className="w-[105px]">Cancel</ButtonOutline>
-                            <Button className="w-[105px]" onClick={handleCreateKratu}>
+                        <div className="gap-3 flex flex-col md:flex-row justify-end">
+                            <ButtonOutline className=" md:w-[105px] " onClick={handleCancelCreate}>Cancel</ButtonOutline>
+                            <Button className=" md:w-[105px]" onClick={handleCreateKratu}>
                                 Post
                             </Button>
                         </div>
@@ -466,7 +478,7 @@ const Home = () => {
                             className="rounded-lg w-auto h-[234px] border border-[#49A569] py-2.5 px-3.5 text-base"
                         ></textarea>
                         <div className="gap-3 flex justify-end">
-                            <ButtonOutline className="w-[105px]" onClick={() => setIsOpenEdit(false)}>Cancel</ButtonOutline>
+                            <ButtonOutline className="w-[105px]" onClick={handleCancelUpdate}>Cancel</ButtonOutline>
                             <Button className="w-[105px]" onClick={handleUpdate}>
                                 Confirm
                             </Button>
@@ -477,7 +489,7 @@ const Home = () => {
             <Modal isOpen={isOpenDelete} onClose={() => setIsOpenDelete(!isOpenDelete)} size={{ w: "400px", h: "248px" }} closeButton>
                 <div className="flex flex-col">
                     <span className="text-medium  text-[#101828] font-semibold text-center">Please confirm if you wish to <br />delete the post</span>
-                    <span className='text-base font-normal text-[#5B5B5B] text-center' >Are you sure you want to delete the post? Once deleted, it cannot be recovered.</span>
+                    <span className='text-base font-normal text-[#5B5B5B] text-center' >Are you sure you want to delete the post? <br />Once deleted, it cannot be recovered.</span>
 
                     <div className="gap-3 flex mt-8 md:flex-row flex-col">
                         <ButtonOutline className="order-2 md:order-1 flex-1 flex justify-center items-center py-[18px] px-[10px]" onClick={() => setIsOpenDelete(false)}>Cancel</ButtonOutline>

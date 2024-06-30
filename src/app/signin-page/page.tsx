@@ -1,21 +1,24 @@
 'use client';
 
 import { Castoro } from 'next/font/google';
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import { setUserName } from '../store/userSlice';
 import { AppDispatch } from '../store/store';
+import Image from 'next/image';
+import { useMediaQuery } from 'react-responsive';
 
 const castoro = Castoro({
     variable: '--font-castoro',
     subsets: ['latin'],
-    weight: '400',
-    style: 'italic',
+    weight: ['400'],
+    style: ['normal', 'italic'],
 });
 
 const SignInPage = () => {
+    const isLargeScreen = useMediaQuery({ query: '(min-width: 768px)' });
+
     const [name, setName] = useState<string>('');
     const dispatch = useDispatch<AppDispatch>();
     const router = useRouter();
@@ -26,6 +29,7 @@ const SignInPage = () => {
         }
         router.push('/home-page');
     };
+
     return (
         <div className={`${castoro.variable} flex flex-col md:flex-row h-screen bg-[#253830]`}>
             <div className="order-2 md:order-1 md:w-[55%] md:flex-none flex-1 flex justify-center items-center text-2xl">
@@ -54,12 +58,12 @@ const SignInPage = () => {
                         height={131.62}
                         className="md:w-[300px] md:h-[230px]"
                     />
-                    <div className={`${castoro.variable} font-sans`}>
+                    <div style={{ fontFamily: 'Castoro, serif', fontWeight: 400, fontStyle: 'italic', fontSize: "28px" }} >
                         a Board
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

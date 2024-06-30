@@ -120,6 +120,7 @@ const Home = () => {
     const handleCreateKratu = async () => {
         const currentTimestamp = dayjs().valueOf().toString();
         if (userName && currentTimestamp && selectedItem && title && content) {
+
             const data = {
                 name: userName,
                 timeStamp: currentTimestamp,
@@ -134,11 +135,14 @@ const Home = () => {
                 const response = await axios.post(`${BASE_URL}/kratu/post`, data);
                 console.log('Post request successful:', response.data);
                 setLoading(false);
-                setIsOpen(false);
                 fetchDataAfterCreate()
+                handleCancelCreate()
+
             } catch (error) {
                 console.error('Error making POST request:', error);
             }
+        } else {
+
         }
     };
 
@@ -181,11 +185,16 @@ const Home = () => {
     if (loading) {
         return <Loading />;
     }
-
+    const handleCancelCreate = () => {
+        setContent('')
+        setTitle('')
+        setSelectedItem('')
+        setIsOpen(false)
+    }
     return (
         <div className="relative min-h-screen bg-[#BBC2C0]">
-            <header className="flex justify-between bg-[#253830]">
-                <div className="text-white items-center flex ml-8 my-4">a Board</div>
+            <header className="flex justify-between bg-[#243831]">
+                <div className="text-white items-center flex ml-8 my-4" style={{ fontFamily: 'Castoro, serif', fontWeight: 400, fontStyle: 'italic', fontSize: "28px" }}>a Board</div>
 
                 {!isLargeScreen ? <div className='flex items-center mr-5'>
                     <button onClick={() => setIsOpenMenu(true)}>
@@ -228,7 +237,7 @@ const Home = () => {
                                 value={searchQuery}
                                 onChange={handleSearchInputChange}
                                 placeholder={placeholder}
-                                className="md:w-[535px] bg-[#BBC2C0] md:focus:outline-none md:focus:border-transparent w-2 focus:w-screen md:focus:w-[535px]"
+                                className="md:w-[535px] bg-[#BBC2C0] focus:outline-none focus:border-transparent  md:focus:outline-none md:focus:border-transparent w-2 focus:w-screen md:focus:w-[535px]"
                             />
                         </div>
                         <div>
@@ -280,9 +289,9 @@ const Home = () => {
                                         <div className=" text-gray-300 text-[12px] font-normal">{handleDate(data.timeStamp)}</div>
                                     </div>
                                     <div className="py-1 px-2 rounded-2xl w-fit text-xs" style={{ backgroundColor: '#F3F3F3', color: '#4A4A4A' }}>
-                                        {data.tagName}
+                                        {data.tagName == "" ? "Community" : data.tagName}
                                     </div>
-                                    <div className="font-semibold text-medium">{data.title}</div>
+                                    <div className="font-semibold text-[28px]">{data.title}</div>
                                     <div className="w-auto line-clamp-2">{data.content}</div>
                                     <div className="flex gap-2">
                                         <Image src="/icons/commentIcon.png" alt="back-icon" width={16} height={16} />
@@ -340,7 +349,7 @@ const Home = () => {
                             className="rounded-lg w-auto  h-[120px] md:h-[234px] border border-[#49A569] py-2.5 px-3.5 text-base"
                         ></textarea>
                         <div className="gap-3 flex flex-col md:flex-row justify-end">
-                            <ButtonOutline className=" md:w-[105px]">Cancel</ButtonOutline>
+                            <ButtonOutline className=" md:w-[105px] " onClick={handleCancelCreate}>Cancel</ButtonOutline>
                             <Button className=" md:w-[105px]" onClick={handleCreateKratu}>
                                 Post
                             </Button>

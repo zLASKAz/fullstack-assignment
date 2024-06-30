@@ -1,0 +1,81 @@
+   const mockData = [
+        {
+            name: "Wittawat1",
+            timeStamp: "07/2/2024",
+            title: "The Beginning ...",
+            content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to m",
+            comments: [
+                {
+                    nameComment: "Wittawat2",
+                    image: "image",
+                    timeStampComment: "07/1/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+                {
+                    nameComment: "Wittawat3",
+                    image: "image",
+                    timeStampComment: "07/2/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+                {
+                    nameComment: "Wittawat4",
+                    image: "image",
+                    timeStampComment: "07/3/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+            ]
+        },
+        {
+            name: "Wittawat1",
+            timeStamp: "07/2/2024",
+            title: "The Beginning ...",
+            content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to m",
+            comments: [
+                {
+                    nameComment: "Wittawat2",
+                    image: "image",
+                    timeStampComment: "07/1/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+                {
+                    nameComment: "Wittawat3",
+                    image: "image",
+                    timeStampComment: "07/2/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+                {
+                    nameComment: "Wittawat4",
+                    image: "image",
+                    timeStampComment: "07/3/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+            ]
+        },
+        {
+            name: "Wittawat1",
+            timeStamp: "07/2/2024",
+            title: "The Beginning ...",
+            content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to m",
+            comments: [
+                {
+                    nameComment: "Wittawat2",
+                    image: "image",
+                    timeStampComment: "07/1/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+                {
+                    nameComment: "Wittawat3",
+                    image: "image",
+                    timeStampComment: "07/2/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+                {
+                    nameComment: "Wittawat4",
+                    image: "image",
+                    timeStampComment: "07/3/2024",
+                    textComment: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dumm"
+                },
+            ]
+        },
+
+    ];

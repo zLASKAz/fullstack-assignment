@@ -1,0 +1,67 @@
+[10888:16808:2024-6-27 18:50:11.17] Main Start
+[10888:16808:2024-6-27 18:50:11.17] Command line:"C:\Users\U s e r\OneDrive\à´Ê¡ì·çÍ»\vscode project\Next App\full-stack-developer-assignment\fullstack-assignment\public\images\Zoom_cm_fo42pnktZ9vvrZo4_mmgCTqSxb+Wvm3aM30DFkbAc3FsiJYFuBaphu@Rqh-V3GqSUj2khdE_kcf765bae0445d52a_.exe"  Instance:0xA30000 Show State:1
+[10888:16808:2024-6-27 18:50:11.58] C:\
+[10888:19044:2024-6-27 18:50:11.66] [process_requst] start, url:https://us06web.zoom.us/conf/launch
+[10888:19044:2024-6-27 18:50:11.729] [req_state_read_status_code] zHttpQueryInfo complete, status:200
+[10888:19044:2024-6-27 18:50:11.729] [req_state_read_status_code] zHttpQueryInfo complete, status:200 Error: 0
+[10888:19044:2024-6-27 18:50:11.729] [read_response_content] API call zHttpQueryInfo failed, error: 12150
+[10888:19044:2024-6-27 18:50:11.729] [log_response_content] Content length (1048576 as unknown):1048576 , Total read: 2464 , Error No: 0 , Status code: 200
+[10888:19044:2024-6-27 18:50:11.729] [log_response_content] header:
+[10888:19044:2024-6-27 18:50:11.729] HTTP/1.1 200 OK
+Date: Thu, 27 Jun 2024 11:50:13 GMT
+Content-Type: text/plain;charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+x-zm-trackingid: v=2.0;clid=us06;rid=WEB_6d0ee98f3b503658f2a0db45ab2fd2e9
+x-content-type-options: nosniff
+content-security-policy: upgrade-insecure-requests; default-src https://*.zoom.us https://zoom.us blob: 'self'; img-src https: about: blob: data: 'self'; style-src https: safari-extension: chrome-extension: 'unsafe-inline' data: 'self'; font-src https: safari-extension: chrome-extension: blob: data: 'self'; connect-src * about: blob: data: 'self'; media-src * rtmp: blob: data: 'self'; frame-src https: ms-appx-web: zoommtg: zoomus: wvjbscheme: zoomprc: data: blob: 'self'; object-src 'none'; base-uri 'none';
+x-frame-options: SAMEORIGIN
+set-cookie: zm_aid=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly
+x-zm-zoneid: OH1
+strict-transport-security: max-age=31536000; includeSubDomains
+x-xss-protection: 1; mode=block
+referrer-policy: strict-origin-when-cross-origin
+CF-Cache-Status: DYNAMIC
+Set-Cookie: zm_haid=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly
+Set-Cookie: zm_tmaid=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly
+Set-Cookie: zm_htmaid=; Max-Age=0; Expires=Thu, 01 Jan 1970 00:00:10 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly
+Set-Cookie: cred=6FAE3078CA632D1B501C98EDC5FAD8FB; Path=/; Secure; HttpOnly
+Set-Cookie: _zm_page_auth=us06_c_fd0xXSavTLGutTrqA2-gcA; Domain=zoom.us; Path=/; Secure; HttpOnly
+Set-Cookie: _zm_ssid=us06_c_gDKkoY7TRKeagKaOEzxGUQ; Domain=zoom.us; Path=/; Secure; HttpOnly
+Set-Cookie: _zm_ctaid=pA7P1bPiSYOV8wvXcAWYfg.1719489013681.eb92438b25cfbfd15baed11a43bcf4ed; Max-Age=7200; Expires=Thu, 27 Jun 2024 13:50:13 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly
+Set-Cookie: _zm_chtaid=885; Max-Age=7200; Expires=Thu, 27 Jun 2024 13:50:13 GMT; Domain=zoom.us; Path=/; Secure; HttpOnly
+Set-Cookie: _zm_mtk_guid=910c0e9419624bbc9936ca7d07ab5ac0; Max-Age=63072000; Expires=Sat, 27 Jun 2026 11:50:13 GMT; Domain=zoom.us; Path=/; Secure
+Set-Cookie: __cf_bm=pXu0YGK5kbn09VVD_6bJ6D9kUw42oJU.rS3h.0PykFU-1719489013-1.0.1.1-lxnkOdiyGGuhzeOg2FmjDsTDKl_0wObDVwKab_Zp4lpEC8XY8uR1Ajq3wl2bQFYL7Czu3t1mL22wokzYSiITdQ; path=/; expires=Thu, 27-Jun-24 12:20:13 GMT; domain=.us06web.zoom.us; HttpOnly; Secure; SameSite=None
+Server: cloudflare
+CF-RAY: 89a537de7df67dc6-BKK
+alt-svc: h3=":443"; ma=86400
+
+
+[10888:19044:2024-6-27 18:50:11.729] [process_requst] End for url:https://us06web.zoom.us/conf/launch, return code:200, Error:0, Response content size:2464
+[10888:16808:2024-6-27 18:50:11.745] [client_has_installed_app] found path:
+[10888:16808:2024-6-27 18:50:11.745]  ***NULL-POINTER-PLACEHOLDER***
+[10888:16808:2024-6-27 18:50:11.745] [param_query_local_path] path is: C:\Users\U s e r\AppData\Roaming\Zoom\ZoomDownload\ dir create response : 1 system error: 1008
+[10888:16808:2024-6-27 18:50:11.745] [downloader_run] State:0
+[10888:20304:2024-6-27 18:50:11.745] [process_requst] start, url:https://us06web.zoom.us/client/latest/Installer.exe?archType=x64
+[10888:16808:2024-6-27 18:50:11.745] [client_has_installed_app] found path:
+[10888:16808:2024-6-27 18:50:11.745]  ***NULL-POINTER-PLACEHOLDER***
+[10888:20304:2024-6-27 18:50:12.577] [req_state_read_status_code] zHttpQueryInfo complete, status:200
+[10888:20304:2024-6-27 18:50:12.577] [req_state_read_status_code] zHttpQueryInfo complete, status:200 Error: 0
+[10888:20304:2024-6-27 18:50:12.718] [read_response_file] Status Code:200, content length: 1091400, total read: 1091400, error code: 0
+[10888:20304:2024-6-27 18:50:12.718] [process_requst] End for url:https://us06web.zoom.us/client/latest/Installer.exe?archType=x64, return code:200, Error:0, Response content size:0
+[10888:16808:2024-6-27 18:50:12.749] [handle_download_job_done] Index: 1 Curr index: 1 StatusCode: 200 Error: 0 Response is Empty. 
+[10888:20304:2024-6-27 18:50:12.780] [process_requst] start, url:https://us06web.zoom.us/client/latest/Zoom.msi?archType=x64
+[10888:20304:2024-6-27 18:50:13.393] [req_state_read_status_code] zHttpQueryInfo complete, status:200
+[10888:20304:2024-6-27 18:50:13.393] [req_state_read_status_code] zHttpQueryInfo complete, status:200 Error: 0
+[10888:20304:2024-6-27 18:50:14.272] [read_response_file] Status Code:200, content length: 42922721, total read: 42922721, error code: 0
+[10888:20304:2024-6-27 18:50:14.303] [process_requst] End for url:https://us06web.zoom.us/client/latest/Zoom.msi?archType=x64, return code:200, Error:0, Response content size:0
+[10888:16808:2024-6-27 18:50:14.318] [handle_download_job_done] Index: 2 Curr index: 2 StatusCode: 200 Error: 0 Response is Empty. 
+[10888:16808:2024-6-27 18:50:14.320] C:\Users\U s e r\AppData\Roaming\Zoom\ZoomDownload\Installer.exe
+[10888:16808:2024-6-27 18:50:14.320] ZInstaller --conf.mode=silent --ipc_wnd=591222
+[10888:16808:2024-6-27 18:50:14.636] [launch_silent_install] Installer process created, result:42
+[10888:16808:2024-6-27 18:50:23.747] C:\Users\U s e r\AppData\Roaming\Zoom\bin\Zoom.exe
+[10888:16808:2024-6-27 18:50:23.763] client_launch_app: 
+[10888:16808:2024-6-27 18:50:23.763] C:\Users\U s e r\AppData\Roaming\Zoom\bin\Zoom.exe
+[10888:16808:2024-6-27 18:50:23.763] "--url=zoommtg://win.launch?h.domain=us06web.zoom.us&h.path=join&confid=dXNzPW1KZHZqeE1kczBMcmtGTGt6VDZfd0pRMmNDbjJtcWZUX19tWl8zX2hQUENhUVdqRXotWVlkbFFiOWg5S0NqTDJUbWpSZm1MTmNGajRRUHRReU44MWZEZTVzNmh3andxdlZjTUFYcUxjX0p3eTdFOVFNYkVCSEViY3RQdnhPNGJpZWRqWXRvblpTSnZOM3pMMmtvMnRWV0o5X3ZPNDI2UGlNUS5YMUJKWUJEV2VTVno5YTZLJnRpZD02YzA4ZDQ5MmJkNjA0MTIzOTU4NzgwY2YyNTBkMjM2NQ%3D%3D&mcv=0.92.11227.0929&stype=0&zc=0&browser=chrome&action=join&confno=82187432103&pwd=AkVg5KLpg8XQU8bf7w46zGaLIli8r1.1"
+[10888:16808:2024-6-27 18:50:23.966] [client_launch_app] Zoom app process created, result:42
+[10888:16808:2024-6-27 18:50:24.214] Main End
